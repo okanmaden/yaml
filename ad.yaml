@@ -11,7 +11,7 @@ spec:
     ports:
     - containerPort: 80
     env:
-      - name: deneme
+      - name: USER
         value: "test"
-      - name: veritabani
-        value: "denemedb.com"
+      - name: database
+        value: "testdb.example.com"
