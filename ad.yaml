@@ -1,10 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ilkpod
+  name: annotationdeneme
+  annotations:
+    owner: "deneme"
+    notification-email: "admin@k8sfundamentals.com"
+    releasedate: "21.06.2022"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   containers:
-  - name: nginx
-    image: nginx:latest
+  - name: annotationkonteyner
+    image: nginx
     ports:
     - containerPort: 80
