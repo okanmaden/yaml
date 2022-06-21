@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  name: denemeenvpod
   labels:
-    test: limitdeneme
-  name: limitdeneme
+    app: frontend
 spec:
   containers:
-  - name: limitdeneme
+  - name: denemeenvpod
     image: nginx:latest
-    resources:
-      requests:
-        memory: "80M"
-        cpu: "100m"
-      limits:
-        memory: "300M"
-        cpu: "1"
+    ports:
+    - containerPort: 80
+    env:
+      - name: deneme
+        value: "test"
+      - name: veritabani
+        value: "denemedb.com"
