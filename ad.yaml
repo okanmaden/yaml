@@ -1,21 +1,19 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
-  name: birincideployment
+  name: firstrs
   labels:
-    team: yazilim
+    app: rs
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: frontend
+      app: rs
   template:
     metadata:
       labels:
-        app: frontend
+        app: rs
     spec:
       containers:
       - name: nginx
-        image: nginx:latest
-        ports:
-        - containerPort: 80
+        image: nginx
