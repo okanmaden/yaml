@@ -1,26 +1,12 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: denemeroll
-  labels:
-    team: developer
+  name: backend # Service ismi
 spec:
-  replicas: 12
+  type: ClusterIP # Service tipi
   selector:
-    matchLabels:
-      app: rolling
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 3
-      maxSurge: 3
-  template:
-    metadata:
-      labels:
-        app: rolling
-    spec:
-      containers:
-      - name: nginx
-        image: nginx
-        ports:
-        - containerPort: 80
+    app: backend # Hangi podla ile eşleşeceği (pod'daki labella aynı)
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
