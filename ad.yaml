@@ -1,19 +1,26 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: firstrs
+  name: denemeroll
   labels:
-    app: rs
+    team: developer
 spec:
-  replicas: 3
+  replicas: 12
   selector:
     matchLabels:
-      app: rs
+      app: rolling
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 3
+      maxSurge: 3
   template:
     metadata:
       labels:
-        app: rs
+        app: rolling
     spec:
       containers:
       - name: nginx
         image: nginx
+        ports:
+        - containerPort: 80
