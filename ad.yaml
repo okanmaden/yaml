@@ -1,13 +1,21 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: annotationdeneme
-  annotations:
-    owner: "deneme"
-    releasedate: "21.06.2022"
+  name: birincideployment
+  labels:
+    team: yazilim
 spec:
-  containers:
-  - name: annotationkonteyner
-    image: nginx
-    ports:
-    - containerPort: 80
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
