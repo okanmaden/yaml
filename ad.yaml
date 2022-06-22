@@ -1,20 +1,15 @@
-affinity:
-    podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-          - key: app
-            operator: In
-            values:
-            - frontend
-        topologyKey: kubernetes.io/hostname
-      preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 1
-        podAffinityTerm:
-          labelSelector:
-            matchExpressions:
-            - key: color
-              operator: In
-              values:
-              - blue
-          topologyKey: kubernetes.io/hostname
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: deneme
+   labels:
+     app: deneme
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  nfs:
+    path: /
+    server: 10.255.255.10
