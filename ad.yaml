@@ -1,13 +1,9 @@
-volumes:
-  - name: volbir
-    hostPath:
-      path: /tmp
-      type: Directory
-  - name: voliki
-    hostPath:
-      path: /cache
-      type: DirectoryOrCreate
-  - name: voluc
-    hostPath:
-      path: /cache/config.json
-      type: FileOrCreate
+apiVersion: v1
+kind: Secret
+metadata:
+  name: secretdeneme
+type: Opaque
+stringData:
+  db_server: db.example.com
+  db_username: deneme
+  db_password: sifre
