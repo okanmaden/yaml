@@ -1,17 +1,26 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: deneme1
+  name: deneme2
 spec:
   containers:
-  - name: dnm1
-    image: nginx
+  - name: dnm2
+    image: ozgurozturknet/k8s
   affinity:
     nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        preference:
+          matchExpressions:
           - key: application
-            operator: In #In, NotIn, Exists, DoesNotExist
+            operator: In
             values:
             - red
+      - weight: 2
+        preference:
+          matchExpressions:
+          - key: app
+            operator: In
+            values:
+            - green
+---
