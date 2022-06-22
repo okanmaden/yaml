@@ -1,9 +1,17 @@
 apiVersion: v1
-kind: Secret
+kind: Pod
 metadata:
-  name: secretdeneme
-type: Opaque
-stringData:
-  db_server: db.example.com
-  db_username: deneme
-  db_password: sifre
+  name: deneme1
+spec:
+  containers:
+  - name: dnm1
+    image: nginx
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: application
+            operator: In #In, NotIn, Exists, DoesNotExist
+            values:
+            - red
