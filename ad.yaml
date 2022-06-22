@@ -1,15 +1,4 @@
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: denemeclaim
-spec:
-  accessModes:
-    - ReadWriteOnce
-  volumeMode: Filesystem
-  resources:
-    requests:
-      storage: 5Gi
-  storageClassName: ""
-  selector:
-    matchLabels:
-      app: dnm
+ volumes:
+        - name: mysqlvolume
+          persistentVolumeClaim:
+            claimName: mysqlclaim
