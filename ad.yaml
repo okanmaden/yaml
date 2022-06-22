@@ -1,13 +1,13 @@
 volumes:
-  - name: directory-vol
+  - name: volbir
     hostPath:
       path: /tmp
       type: Directory
-  - name: dircreate-vol
+  - name: voliki
     hostPath:
       path: /cache
       type: DirectoryOrCreate
-  - name: file-vol
+  - name: voluc
     hostPath:
       path: /cache/config.json
       type: FileOrCreate
