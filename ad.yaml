@@ -1,16 +1,26 @@
-apiVersion: batch/v1
-kind: Job
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: deneme
+  name: appingress
+  annotations:
+  # Nginx üzerinde ayarlar, annotations üzerinden yapılır.
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
-  parallelism: 3
-  completions: 15
-  backoffLimit: 5
-  activeDeadlineSeconds: 50
-  template:
-    spec:
-      containers:
-      - name: pi
-        image: perl
-        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
-      restartPolicy: Never #OnFailure 
+  rules:
+    - host: k8sfundamentals.com
+      http:
+        paths:
+          - path: /blue
+            pathType: Prefix 
+            backend:
+              service:
+                name: bluesvc
+                port:
+                  number: 80
+          - path: /green
+            pathType: Prefix
+            backend:
+              service:
+                name: greensvc
+                port:
+                  number: 80
