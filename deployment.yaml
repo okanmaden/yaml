@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploymentornek #deployment adı
+spec:
+  replicas: 4  # kaç adet pod oluşturulacağının tanımı
+  selector:
+    matchLabels:
+      team: yazilimci # selector ile deploymentın hangi labela sahip podları yöneteceğinin tanımı
+  template:
+    metadata:
+      labels:
+        app: yazilimci #yaratılacak podların labelları
+    spec:
+      containers:
+      - name: nginx #containerın adı
+        image: nginx:latest #containerın oluşacağı imaj
+        ports:
+        - containerPort: 80 #port
