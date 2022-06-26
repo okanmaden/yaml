@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: yazilimci #yaratılacak podların labelları
+        team: yazilimci #yaratılacak podların labelları
     spec:
       containers:
       - name: nginx #containerın adı
