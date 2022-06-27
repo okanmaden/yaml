@@ -16,4 +16,4 @@ spec:
       - name: nginx #containerın adı
         image: nginx:latest #containerın oluşacağı imaj
         ports:
-        - containerPort: 5000 #port
+        - containerPort: 5 #port
