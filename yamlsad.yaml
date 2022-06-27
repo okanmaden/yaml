@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ornekpod # pod ismi
+spec:
+  containers:
+  - name: hello-world # container ismi
+    image: hello-world #containerin oluşacağı imaj
+    ports:
+    - containerPort: 80 #containera erişim sağlanması için port tanımı
