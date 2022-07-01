@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: sharevol
 spec:
-  restartPolicy: On-failure
+  restartPolicy: On-Failure
   containers:
   - name: c1
     image: centos:7
