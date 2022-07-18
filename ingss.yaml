@@ -52,13 +52,7 @@ spec:
                 name: bluesvc
                 port:
                   number: 80
-          - path: /green
-            pathType: Prefix
-            backend:
-              service:
-                name: greensvc
-                port:
-                  number: 80
+          
                   
                   --
 apiVersion: v1
