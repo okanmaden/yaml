@@ -163,7 +163,7 @@ spec:
       name: data
     spec:
       accessModes: ["ReadWriteOnce"]
-      storageClassName: standart
+      storageClassName: manual
       resources:
         requests:
           storage: 10Gi
