@@ -164,5 +164,6 @@ spec:
     spec:
       accessModes: ["ReadWriteOnce"]
       resources:
+        storageClassName: standart
         requests:
           storage: 10Gi
