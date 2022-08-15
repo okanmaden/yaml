@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ornekpod # pod ismi
+spec:
+  containers:
+  - name: nginx # container ismi
+    image: nginx:911 #containerin oluşacağı imaj
+    ports:
+    - containerPort: 80 #containera dışarıdan erişim sağlanması için port tanımı
