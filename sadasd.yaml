@@ -1,0 +1,33 @@
+affinity:
+
+ nodeAffinity: 
+
+   prefferredDuringSchedulingIgnoredDuringExecution:
+
+  - weight: 1
+
+    preference:
+
+      matchExpressions:
+
+      - key: Joy
+
+        operator: In
+
+        values:
+
+         - yes
+
+- weight: 2
+
+  preference: 
+
+   matchExpressions:
+
+     - key: Joy
+
+     operator: In
+
+     values: 
+
+     - no
