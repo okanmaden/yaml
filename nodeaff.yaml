@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: nodeaffinity1
-    image: ozgurozturknet/k8s
+    image: nginx
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
