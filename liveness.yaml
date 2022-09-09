@@ -113,3 +113,28 @@ spec:
         - /usr/share/myApp/html/index.html
       initialDelaySeconds: 15
       periodSeconds: 20
+      
+      
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: readiness-tcp
+spec:
+  containers:
+  - name: readiness
+    image: myApp
+    ports:
+    - containerPort: 8080
+    readinessProbe:
+      tcpSocket:
+        host:
+        port: 80
+      initialDelaySeconds: 5
+      periodSeconds: 10
+    livenessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 15
+      periodSeconds: 20
