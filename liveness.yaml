@@ -85,3 +85,31 @@ spec:
         port: 8080
       initialDelaySeconds: 15
       periodSeconds: 20
+...
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: readiness
+  name: readiness-exec
+spec:
+  containers:
+  - name: liveness
+    image: myApp
+    ports:
+    - containerPort: 8080
+    readinessProbe:
+      exec:
+        command:
+        - cat
+        - /etc/myApp/configs/config.yml
+      initialDelaySeconds: 5
+      periodSeconds: 10
+    livenessProbe:
+      exec:
+        command:
+        - cat
+        - /usr/share/myApp/html/index.html
+      initialDelaySeconds: 15
+      periodSeconds: 20
